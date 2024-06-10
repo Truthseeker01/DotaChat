@@ -1,0 +1,719 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+}
+.hidenav{
+    display: none;
+}
+
+nav{
+    width: 100%;
+    background-color: #111;
+    margin-bottom: 0;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a{
+    color: white;
+    width: 25%;
+    text-align: center;
+    font-size: 30px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+/* Profile styles */
+    #profile{
+        width: 500px;
+        height: 800px;
+        background-color: #393d49;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #profile-header{
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        width: 100%;
+        height: 15%;
+    }
+
+
+    #profile-picture{
+        width: 20%;
+        height: 80%;
+        border-radius: 50%;
+        margin-left: 20px;
+    }
+
+    #rank-img{
+        width: 20%;
+        height: 80%;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    #profile-header div{
+        flex: 1;
+    }
+
+    #profile-header p{ 
+        color: white;
+        align-self: flex-start;
+    }
+
+    #profile-header h1{
+        color: white;
+    }
+
+    #profile-main{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #profile-main #widget{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #profile-main .widget{
+        background-color: #222;
+        width: 20%;
+        text-align: center;
+        padding: 5px;
+    }
+
+    #profile-main .widget:hover{
+        border: 1px solid rgb(98, 173, 243);
+    }
+
+    #profile-main .widget p{
+        color: #989898;
+    }
+    #profile-main .widget span{
+        color: #ffffff;
+    }
+
+    #profile-main #last-match{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* overflow-y: scroll; */
+    }
+
+    #last-match img{
+        height: 80%;
+    }
+
+    #last-match h3, p{
+        color: white;
+    }
+
+    #last-match #build{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #last-match #build h3{
+        color: #989898;
+    }
+
+    #last-match #build img{
+        width: 50px;
+        height: 50px;
+    }
+
+    #hero p{
+        color: white;
+    }
+
+    #profile-footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        width: 100%;
+        height: 15%;
+    }
+
+    #profile-footer button{
+        border: 1px solid #ffffff;
+        height: 50%;
+        width: 70%;
+        background: transparent;
+        font-weight: bold;
+        color: white;
+    }
+
+/* Chats styles */
+
+    #chats-container{
+        width: 500px;
+        height: 800px;
+        background-color: #393d49;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        gap: 10px;
+        align-items: center;
+        scrollbar-width: none;
+    }
+
+    #chats-container h1{
+        color: white;
+        margin-top: 0;
+        padding-bottom: 25px;
+        padding-top: 25px;
+        width: 100%;
+        text-align: center;
+        background-color: #111;
+    }
+
+    .chat-card{
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid white;
+    }
+
+    .chat-card img{
+        width: 15%;
+        border-radius: 50%;
+        margin-left: 3%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .chat-card h2{
+        color: white;
+        margin-left: 5%;
+    }
+
+/* Search styles */
+
+    #Search{
+        width: 500px;
+        height: 800px;
+        background-color: #393d49;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #Search h1{
+        color: white;
+        margin-top: 0;
+        padding-bottom: 25px;
+        padding-top: 25px;
+        width: 100%;
+        text-align: center;
+        background-color: #111;
+    }
+
+    #Search form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    #Search form input{
+        width: 80%;
+        height: 30px;
+        text-align: center;
+    }
+
+    #Search form input:focus{
+        outline: 1px solid rgb(98, 173, 243);
+    }
+
+    #Search form button{
+        height: 30px;
+        background-color: #111;
+        color: white;
+    }
+
+    #Search form button:hover{
+        border: 1px solid rgb(98, 173, 243);
+    }
+
+/* Plays styles */
+
+#plays{
+    width: 500px;
+    height: 800px;
+    background-color: #393d49;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 10px;
+    align-items: center;
+    scrollbar-width: none;
+}
+
+#plays h1{
+    color: white;
+    margin-top: 0;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    width: 100%;
+    text-align: center;
+    background-color: #111;
+}
+
+#playscard{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+#playscard-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#playscard-div img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+#playscard h2{
+    color: white;
+}
+
+#playscard p{
+    color: #989898;
+}
+
+#playscard video{
+    width: 80%;
+}
+
+/* Chatbox styles */
+
+#chatbox{
+    width: 500px;
+    height: 895px;
+    background-color: #393d49;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 10px;
+    align-items: center;
+    scrollbar-width: none;
+}
+
+#chat_header{
+    align-self: flex-start;
+    width: 100%;
+    background-color: #111;
+    color: #bdbdbd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 86.5px;
+
+    /* color: white;
+    margin-top: 0;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    width: 100%;
+    text-align: center;
+    background-color: #111; */
+}
+
+#chat_header h1{
+    flex: 1;
+    margin-left: 2%;
+    color: white;
+    margin-top: 0;
+    padding-top: 25px;
+    width: 100%;
+    text-align: center;
+    background-color: #111;
+}
+
+#chat_header button{
+    height: 50%;
+    margin-right: 5%;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+#message_container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 5px;
+}
+
+#message_container::-webkit-scrollbar {
+    display: none;
+}
+
+#message_container div{
+    background-color: rgb(248, 245, 240);
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+
+}
+
+#send{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#send input{
+    flex: 1;
+    height: 60%;
+    border-radius: 25px;
+    margin-left: 10px;
+    background-color: white;
+}
+
+#send button{
+    height: 65%;
+    width: 20%;
+    border-radius: 25px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+/* ViewProfie styles */
+
+#view-profile{
+    width: 500px;
+    height: 800px;
+    background-color: #393d49;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#view-profile-header{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    width: 100%;
+    height: 15%;
+}
+
+
+#view-profile-picture{
+    width: 20%;
+    height: 80%;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+#view-rank-img{
+    width: 20%;
+    height: 80%;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+#view-profile-header div{
+    flex: 1;
+}
+
+#view-profile-header p{ 
+    color: white;
+    align-self: flex-start;
+}
+
+#view-profile-header h1{
+    color: white;
+}
+
+#view-profile-main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#view-profile-main #view-widget{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#view-profile-main .widget{
+    background-color: #222;
+    width: 20%;
+    text-align: center;
+    padding: 5px;
+}
+
+#view-profile-main .widget:hover{
+    border: 1px solid rgb(98, 173, 243);
+}
+
+#view-profile-main .widget p{
+    color: #989898;
+}
+#view-profile-main .widget span{
+    color: #ffffff;
+}
+
+#view-last-match{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#view-last-match img{
+    height: 80%;
+}
+
+#view-last-match h3, p{
+    color: white;
+}
+
+#view-last-match #view-build{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#view-last-match #view-build h3{
+    color: #989898;
+}
+
+#view-last-match #view-build img{
+    width: 50px;
+    height: 50px;
+}
+
+#view-profile-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    width: 100%;
+    height: 15%;
+}
+
+#view-profile-footer button{
+    border: 1px solid #ffffff;
+    height: 50%;
+    width: 70%;
+    background: transparent;
+    font-weight: bold;
+    color: white;
+}
+
+/* login styles */
+.login-div{
+    width: 500px;
+    height: 800px;
+    background-color: #393d49;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.login-div h1{
+    color: white;
+    margin-top: 0;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    width: 100%;
+    text-align: center;
+    background-color: #111;
+}
+
+.login-div a{
+    color: #38ff73;
+}
+
+.login-div form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-div form input, button{
+    padding: 5px;
+    background-color: #111;
+    color: white;
+}
+
+@media screen and (max-width: 500px){
+    body{
+        margin: 0;
+    }
+
+    #app{
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #chats-container{
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    nav{
+        width: 100%;
+    }
+
+    #chatbox{
+        width: 100%;
+        height: 100%;
+    }
+
+    #Search{
+        width: 100%;
+        height: 100%;
+    }
+
+    #plays{
+        width: 100%;
+        height: 100%;
+    }
+
+    #profile{
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+    }
+
+    #last-match img{
+        height: 60%;
+    }
+
+    #last-match #build{
+        margin-left: 10px;
+    }
+
+    #last-match #build img{
+        width: 11%;
+        height: 90%;
+    }
+
+    #profile-main #widget {
+        gap: 5px;
+    }
+
+    #profile-main{
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+    #profile-main #last-match{
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+    #profile-main .widget p, span{
+        font-size: 0.8rem;
+    }
+
+    #view-profile{
+        width: 100%;
+        height: 100%;
+    }
+
+    /* #view-profile-main{
+        overflow-y: scroll;
+    } */
+     /* This is to handle iPhone se screen  */
+
+    #view-last-match img{
+        height: 60%;
+    }
+
+    #view-last-match #view-build{
+        margin-left: 10px;
+    }
+
+    #view-last-match #view-build img{
+        width: 11%;
+        height: 90%;
+    }
+
+    #view-profile-main #view-widget {
+        gap: 5px
+    }
+
+    #view-profile-main .widget p, span{
+        font-size: 0.8rem;
+    }
+
+    .login-div{
+        width: 100%;
+        height: 100%;
+    }
+
+
+}
