@@ -4,14 +4,17 @@ import { useOutletContext } from "react-router-dom"
 
 function Home(){
 
-        const { currentUser, setHidenav } = useOutletContext()
+        const { currentUser, setHidenav, setUserFriends } = useOutletContext()
 
-    if (currentUser == ''){
-        setHidenav('hidenav')
+    if (currentUser == null){
+        function update() {
+            setHidenav('hidenav')
+        }
         return (
             <Login />
     )
     } else {
+        setUserFriends(currentUser.friends)
         return (
             <>
                 <Chats />
