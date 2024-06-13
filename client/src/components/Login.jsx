@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { useOutletContext } from "react-router-dom"
 
 
 function Login(){
 
-    const[username, setUsername]= useState ('')
-    const[password, setPassword]= useState ('')
+    const [ username, setUsername ] = useState ('')
+    const [ password, setPassword ] = useState ('')
+    const [ player_id, setPlayer_id ] = useState ('')
     const [ isClicked, setIsClicked ] = useState(false)
 
-    // const{setCurrentUser} = useOutletContext()
+    const{setCurrentUser} = useOutletContext()
 
     function handleLogin(e){
         e.preventDefault()
@@ -31,13 +33,13 @@ function Login(){
 
     function handleSignup(e){
         e.preventDefault()
-        fetch("/api/signup", {
+        fetch("/api/users", {
             method : 'POST',
             headers: {
                 "Content-Type": "application/json"
 
             },
-            body: JSON.stringify({username, password})
+            body: JSON.stringify({username, password, player_id})
         })
         .then (res =>{
             if(res.ok ){
@@ -76,7 +78,7 @@ function Login(){
                         <form onSubmit={handleSignup} >
                             <input onChange ={e => setUsername(e.target.value)} type="'text" name="username" placeholder="Username" value={username} />
                             <input onChange ={e => setPassword(e.target.value)} type="password" name="password" placeholder="Password" value={password}/>
-                            <input type="text" name="player_id" placeholder="dota_player_id" />
+                            <input onChange ={e => setPlayer_id(e.target.value)} type="text" name="player_id" placeholder="dota_player_id" value={player_id}/>
                             <button className="login-btn" type="submit" name="submit">Sign up</button>
                         </form>
                         <br />

@@ -5,29 +5,25 @@ import { useState } from "react"
 
 function Chats(){
 
+    const { userFriends, setHidenav } = useOutletContext()
     const [ isClicked, setIsClicked ] = useState(false)
-    const { setHidenav } = useOutletContext()
+    const [ selectedFriend, setSelectedFriend ] = useState(null)
+
+    const mappedFriends = userFriends.map(friend => <ChatCard key={friend.id} setSelectedFriend={setSelectedFriend} friend={friend} isClicked={isClicked} setIsClicked={setIsClicked}/>)
+    
 
     if (!isClicked){
-        setHidenav('')
+        setHidenav(pre => (''))
     return (
         <div id="chats-container">
             <h1>Chats</h1>
-            <ChatCard isClicked={isClicked} setIsClicked={setIsClicked} />
-            <ChatCard />
-            <ChatCard />
-            <ChatCard />
-            <ChatCard />
-            <ChatCard />
-            <ChatCard />
-            <ChatCard />
-            <ChatCard />
+            {mappedFriends}
         </div>
     )
     } else {
-        setHidenav('hidenav')
+        setHidenav( pre => ('hidenav'))
         return (
-        <Chatbox setIsClicked={setIsClicked} isClicked={isClicked} setHidenav={setHidenav}/>
+        <Chatbox setIsClicked={setIsClicked} isClicked={isClicked} setHidenav={setHidenav} selectedFriend={selectedFriend} />
     )  
     }
 }
