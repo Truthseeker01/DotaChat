@@ -3,48 +3,60 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-#app{
+    margin: 0;
+  }
+  
+  #app{
     display: flex;
     flex-direction: column;
-}
-.hidenav{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  .hidenav{
     display: none;
-}
-
-nav{
+  }
+  
+  nav{
     width: 100%;
     background-color: #111;
     margin-bottom: 0;
-    padding-bottom: 25px;
-    padding-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
-
-nav a{
+    height: 12%;
+  }
+  
+  nav a{
     color: white;
     width: 25%;
+    height: 100%;
     text-align: center;
     font-size: 30px;
-    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 1px; */
     text-decoration: none;
-}
+  }
 
-/* Profile styles */
+  nav a:hover{
+    background-color: #222;
+  }
+  
+  /* Profile styles */
     #profile{
-        width: 500px;
-        height: 800px;
+        width: 100%;
+        height: 100%;
         background-color: #393d49;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        overflow-y: hidden;
     }
-
+  
     #profile-header{
         display: flex;
         flex-direction: row;
@@ -55,35 +67,35 @@ nav a{
         width: 100%;
         height: 15%;
     }
-
-
+  
+  
     #profile-picture{
         width: 20%;
         height: 80%;
         border-radius: 50%;
         margin-left: 20px;
     }
-
+  
     #rank-img{
         width: 20%;
         height: 80%;
         border-radius: 50%;
         margin-right: 20px;
     }
-
+  
     #profile-header div{
         flex: 1;
     }
-
+  
     #profile-header p{ 
         color: white;
         align-self: flex-start;
     }
-
+  
     #profile-header h1{
         color: white;
     }
-
+  
     #profile-main{
         flex: 1;
         display: flex;
@@ -91,70 +103,76 @@ nav a{
         justify-content: center;
         align-items: center;
         gap: 10px;
+        overflow-y: scroll;
+        scrollbar-width: none;
     }
-
+  
     #profile-main #widget{
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 5px;
         width: 100%;
         align-items: center;
         justify-content: center;
     }
-
+  
     #profile-main .widget{
         background-color: #222;
         width: 20%;
         text-align: center;
         padding: 5px;
     }
-
+  
     #profile-main .widget:hover{
         border: 1px solid rgb(98, 173, 243);
     }
-
+  
     #profile-main .widget p{
         color: #989898;
+        font-size: 0.8rem;
     }
     #profile-main .widget span{
         color: #ffffff;
+        font-size: 0.8rem;
     }
-
+  
     #profile-main #last-match{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* overflow-y: scroll; */
+        overflow-y: scroll;
+        scrollbar-width: none;
     }
-
+  
     #last-match img{
-        height: 80%;
+        height: 60%;
     }
-
-    #last-match h3, p{
+  
+    #last-match p{
         color: white;
     }
-
+  
     #last-match #build{
         display: flex;
         flex-direction: row;
         gap: 10px;
+        margin-left: 10px;
     }
-
+  
     #last-match #build h3{
         color: #989898;
     }
-
+  
     #last-match #build img{
-        width: 50px;
-        height: 50px;
+        width: 11%;
+        height: 90%;
     }
-
+  
     #hero p{
         color: white;
     }
-
+  
     #profile-footer{
         display: flex;
         justify-content: center;
@@ -163,7 +181,7 @@ nav a{
         width: 100%;
         height: 15%;
     }
-
+  
     #profile-footer button{
         border: 1px solid #ffffff;
         height: 50%;
@@ -171,13 +189,14 @@ nav a{
         background: transparent;
         font-weight: bold;
         color: white;
+        cursor: pointer;
     }
-
-/* Chats styles */
-
+  
+  /* Chats styles */
+  
     #chats-container{
-        width: 500px;
-        height: 800px;
+        width: 100%;
+        height: 100%;
         background-color: #393d49;
         display: flex;
         flex-direction: column;
@@ -185,8 +204,11 @@ nav a{
         gap: 10px;
         align-items: center;
         scrollbar-width: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
     }
-
+  
     #chats-container h1{
         color: white;
         margin-top: 0;
@@ -196,13 +218,13 @@ nav a{
         text-align: center;
         background-color: #111;
     }
-
+  
     .chat-card{
         display: flex;
         flex-direction: row;
         border-bottom: 1px solid white;
     }
-
+  
     .chat-card img{
         width: 15%;
         border-radius: 50%;
@@ -210,17 +232,24 @@ nav a{
         margin-top: 2%;
         margin-bottom: 2%;
     }
-
+  
     .chat-card h2{
         color: white;
         margin-left: 5%;
+        flex: 1;
     }
 
-/* Search styles */
-
+    .chat-card span{
+      color: rgba(255, 255, 255, 0.5);
+      margin-right: 5%;
+      margin-top: 5%;
+    }
+  
+  /* Search styles */
+  
     #Search{
-        width: 500px;
-        height: 800px;
+        width: 100%;
+        height: 100%;
         background-color: #393d49;
         display: flex;
         flex-direction: column;
@@ -228,7 +257,7 @@ nav a{
         gap: 10px;
         align-items: center;
     }
-
+  
     #Search h1{
         color: white;
         margin-top: 0;
@@ -238,7 +267,7 @@ nav a{
         text-align: center;
         background-color: #111;
     }
-
+  
     #Search form{
         display: flex;
         flex-direction: column;
@@ -246,32 +275,32 @@ nav a{
         width: 100%;
         gap: 20px;
     }
-
+  
     #Search form input{
         width: 80%;
         height: 30px;
         text-align: center;
     }
-
+  
     #Search form input:focus{
         outline: 1px solid rgb(98, 173, 243);
     }
-
+  
     #Search form button{
         height: 30px;
         background-color: #111;
         color: white;
     }
-
+  
     #Search form button:hover{
         border: 1px solid rgb(98, 173, 243);
     }
-
-/* Plays styles */
-
-#plays{
-    width: 500px;
-    height: 800px;
+  
+  /* Plays styles */
+  
+  #plays{
+    width: 100%;
+    height: 100%;
     background-color: #393d49;
     display: flex;
     flex-direction: column;
@@ -279,9 +308,9 @@ nav a{
     gap: 10px;
     align-items: center;
     scrollbar-width: none;
-}
-
-#plays h1{
+  }
+  
+  #plays h1{
     color: white;
     margin-top: 0;
     padding-bottom: 25px;
@@ -289,46 +318,46 @@ nav a{
     width: 100%;
     text-align: center;
     background-color: #111;
-}
-
-#playscard{
+  }
+  
+  #playscard{
     display: flex;
     flex-direction: column;
     margin-left: 5%;
     margin-bottom: 2%;
-}
-
-#playscard-div{
+  }
+  
+  #playscard-div{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-}
-
-#playscard-div img{
+  }
+  
+  #playscard-div img{
     height: 50px;
     width: 50px;
     border-radius: 50%;
-}
-
-
-#playscard h2{
+  }
+  
+  
+  #playscard h2{
     color: white;
-}
-
-#playscard p{
+  }
+  
+  #playscard p{
     color: #989898;
-}
-
-#playscard video{
+  }
+  
+  #playscard video{
     width: 80%;
-}
-
-/* Chatbox styles */
-
-#chatbox{
-    width: 500px;
-    height: 895px;
+  }
+  
+  /* Chatbox styles */
+  
+  #chatbox{
+    width: 100%;
+    height: 100%;
     background-color: #393d49;
     display: flex;
     flex-direction: column;
@@ -336,9 +365,9 @@ nav a{
     gap: 10px;
     align-items: center;
     scrollbar-width: none;
-}
-
-#chat_header{
+  }
+  
+  #chat_header{
     align-self: flex-start;
     width: 100%;
     background-color: #111;
@@ -349,17 +378,9 @@ nav a{
     flex-direction: row;
     align-items: center;
     height: 86.5px;
-
-    /* color: white;
-    margin-top: 0;
-    padding-bottom: 25px;
-    padding-top: 25px;
-    width: 100%;
-    text-align: center;
-    background-color: #111; */
-}
-
-#chat_header h1{
+  }
+  
+  #chat_header h1{
     flex: 1;
     margin-left: 2%;
     color: white;
@@ -368,29 +389,38 @@ nav a{
     width: 100%;
     text-align: center;
     background-color: #111;
-}
-
-#chat_header button{
+  }
+  
+  #chat_header button{
     height: 50%;
     margin-right: 5%;
     background: transparent;
     color: white;
-    border: 1px solid white;
-}
-
-#message_container{
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #chat_header p{
+    margin-left: 5%;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  #message_container{
+    width: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
     overflow: auto;
     gap: 5px;
-}
-
-#message_container::-webkit-scrollbar {
+  }
+  
+  #message_container::-webkit-scrollbar {
     display: none;
-}
-
-#message_container div{
+  }
+  
+  #message_container div{
     background-color: rgb(248, 245, 240);
     max-width: 60%;
     padding: 10px;
@@ -402,10 +432,10 @@ nav a{
     flex-wrap: wrap;
     word-break: break-word;
     overflow-wrap: break-word;
-
-}
-
-#send{
+  
+  }
+  
+  #send{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -413,35 +443,53 @@ nav a{
     height: 80px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-}
-#send input{
+  }
+  #send input{
     flex: 1;
     height: 60%;
     border-radius: 25px;
     margin-left: 10px;
     background-color: white;
-}
-
-#send button{
+  }
+  
+  #send input:focus{
+    outline: none;
+  }
+  
+  #send button{
     height: 65%;
     width: 20%;
     border-radius: 25px;
     margin-right: 10px;
     background-color: white;
-}
-
-/* ViewProfie styles */
-
-#view-profile{
-    width: 500px;
-    height: 800px;
+    color: #111;
+    cursor: pointer;
+  }
+  
+  #message_container .recieved-message{
+    color: #111;
+    align-self: flex-start;
+    margin-left: 15px;
+  }
+  
+  #message_container .sent-message{
+    color: #ba3e3e;
+    align-self: flex-end;
+    margin-right: 15px;
+  }
+  
+  /* ViewProfie styles */
+  
+  #view-profile{
+    width: 100%;
+    height: 100%;
     background-color: #393d49;
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-#view-profile-header{
+  }
+  
+  #view-profile-header{
     display: flex;
     flex-direction: row;
     gap: 25px;
@@ -450,124 +498,128 @@ nav a{
     background-color: #111;
     width: 100%;
     height: 15%;
-}
-
-
-#view-profile-picture{
+  }
+  
+  
+  #view-profile-picture{
     width: 20%;
     height: 80%;
     border-radius: 50%;
     margin-left: 20px;
-}
-
-#view-rank-img{
+  }
+  
+  #view-rank-img{
     width: 20%;
     height: 80%;
     border-radius: 50%;
     margin-right: 20px;
-}
-
-#view-profile-header div{
+  }
+  
+  #view-profile-header div{
     flex: 1;
-}
-
-#view-profile-header p{ 
+  }
+  
+  #view-profile-header p{ 
     color: white;
     align-self: flex-start;
-}
-
-#view-profile-header h1{
+  }
+  
+  #view-profile-header h1{
     color: white;
-}
-
-#view-profile-main{
+  }
+  
+  #view-profile-main{
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-
-#view-profile-main #view-widget{
+  }
+  
+  #view-profile-main #view-widget{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 5px;
     width: 100%;
     align-items: center;
     justify-content: center;
-}
-
-#view-profile-main .widget{
+  }
+  
+  #view-profile-main .widget{
     background-color: #222;
     width: 20%;
     text-align: center;
     padding: 5px;
-}
-
-#view-profile-main .widget:hover{
+  }
+  
+  #view-profile-main .widget:hover{
     border: 1px solid rgb(98, 173, 243);
-}
-
-#view-profile-main .widget p{
+  }
+  
+  #view-profile-main .widget p{
     color: #989898;
-}
-#view-profile-main .widget span{
+    font-size: 0.8rem;
+  }
+  #view-profile-main .widget span{
     color: #ffffff;
-}
-
-#view-last-match{
+    font-size: 0.8rem;
+  }
+  
+  #view-last-match{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#view-last-match img{
-    height: 80%;
-}
-
-#view-last-match h3, p{
+  }
+  
+  #view-last-match img{
+    height: 60%;
+  }
+  
+  #view-last-match h3, p{
     color: white;
-}
-
-#view-last-match #view-build{
+  }
+  
+  #view-last-match #view-build{
     display: flex;
     flex-direction: row;
     gap: 10px;
-}
-
-#view-last-match #view-build h3{
+    margin-left: 10px;
+  }
+  
+  #view-last-match #view-build h3{
     color: #989898;
-}
-
-#view-last-match #view-build img{
-    width: 50px;
-    height: 50px;
-}
-
-#view-profile-footer{
+  }
+  
+  #view-last-match #view-build img{
+    width: 11%;
+    height: 90%;
+  }
+  
+  #view-profile-footer{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #111;
     width: 100%;
     height: 15%;
-}
-
-#view-profile-footer button{
+  }
+  
+  #view-profile-footer button{
     border: 1px solid #ffffff;
     height: 50%;
     width: 70%;
     background: transparent;
     font-weight: bold;
     color: white;
-}
-
-/* login styles */
-.login-div{
-    width: 500px;
-    height: 800px;
+    cursor: pointer;
+  }
+  
+  /* login styles */
+  .login-div{
+    width: 100%;
+    height: 100%;
     background-color: #393d49;
     display: flex;
     flex-direction: column;
@@ -576,9 +628,9 @@ nav a{
     align-items: center;
     justify-content: center;
     color: white;
-}
-
-.login-div h1{
+  }
+  
+  .login-div h1{
     color: white;
     margin-top: 0;
     padding-bottom: 25px;
@@ -586,134 +638,162 @@ nav a{
     width: 100%;
     text-align: center;
     background-color: #111;
-}
-
-.login-div a{
+  }
+  
+  .login-div a{
     color: #38ff73;
-}
-
-.login-div form{
+  }
+  
+  .login-div form{
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.login-div form input, button{
+  }
+  
+  .login-div form input, button{
     padding: 5px;
     background-color: #111;
     color: white;
-}
+  }
+  
+  /* Post styles */
+  
+  #post{
+    width: 100%;
+    height: 100%;
+    background-color: #393d49;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+  }
+  
+  #post p{
+    align-self: flex-end;
+    margin-right: 5%;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  #post form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #post form .video-upload{
+    display: none;
+  }
+  
+  #post form .file-label {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #111;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    height: 10%;
+    width: 20%;
+    text-align: center;
+    font-size: 60px;
+  }
+  
+  #post form .file-label:hover {
+    background-color: #222;
+  }
+  
+  
+  #post form .file-names-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: #111;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    height: 10%;
+    width: 20%;
+    text-align: center;
+    font-size: 60px;
+  }
+  #post form .file-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    color: #bab2b2;
+    width: 100%;
+    height: 100%;
+  }
+  #post form .file-name span {
+    font-size: 14px;
+    color: #888;
+  }
+  #post form .file-size {
+    color: #888;
+  }
+  
+  #post form input{
+    width: 80%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    color: white;
+  }
+  
+  #post form input:focus{
+    outline: none;
+  }
+  
+  #post form button{
+    border: none;
+  
+  }
 
-@media screen and (max-width: 500px){
+
+@media only screen and (min-width: 550px) {
     body{
-        margin: 0;
+        background-color: #1e1e1e;
     }
-
-    #app{
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-    }
-
     #chats-container{
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
+        width: 30%;
     }
-
-    nav{
-        width: 100%;
-    }
-
     #chatbox{
-        width: 100%;
-        height: 100%;
+        width: 70%;
+        align-self: flex-end;
     }
-
     #Search{
-        width: 100%;
-        height: 100%;
+        width: 70%;
+        align-self: flex-end;
     }
-
     #plays{
-        width: 100%;
-        height: 100%;
+        width: 70%;
+        align-self: flex-end;
     }
-
     #profile{
-        width: 100%;
-        height: 100%;
-        overflow-y: hidden;
+        width: 70%;
+        align-self: flex-end;
     }
-
-    #last-match img{
-        height: 60%;
+    #post{
+        width: 70%;
+        align-self: flex-end;
     }
-
-    #last-match #build{
-        margin-left: 10px;
+    #message_container div{
+      max-width: 40%;
     }
-
-    #last-match #build img{
-        width: 11%;
-        height: 90%;
     }
-
-    #profile-main #widget {
-        gap: 5px;
-    }
-
-    #profile-main{
-        overflow-y: scroll;
-        scrollbar-width: none;
-    }
-
-    #profile-main #last-match{
-        overflow-y: scroll;
-        scrollbar-width: none;
-    }
-
-    #profile-main .widget p, span{
-        font-size: 0.8rem;
-    }
-
-    #view-profile{
-        width: 100%;
-        height: 100%;
-    }
-
-    /* #view-profile-main{
-        overflow-y: scroll;
-    } */
-     /* This is to handle iPhone se screen  */
-
-    #view-last-match img{
-        height: 60%;
-    }
-
-    #view-last-match #view-build{
-        margin-left: 10px;
-    }
-
-    #view-last-match #view-build img{
-        width: 11%;
-        height: 90%;
-    }
-
-    #view-profile-main #view-widget {
-        gap: 5px
-    }
-
-    #view-profile-main .widget p, span{
-        font-size: 0.8rem;
-    }
-
-    .login-div{
-        width: 100%;
-        height: 100%;
-    }
-
-
 }
