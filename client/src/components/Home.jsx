@@ -1,20 +1,26 @@
 import Login from "./Login"
 import Chats from "./Chats"
 import { useOutletContext } from "react-router-dom"
+import { useEffect } from "react"
 
 function Home(){
 
-        const { currentUser, setHidenav, setUserFriends } = useOutletContext()
+        const { currentUser, setHidenav, setUserFriends } = useOutletContext();
+
+        useEffect(() => {
+            if (currentUser === null){
+                setHidenav('hidenav');
+                setUserFriends([]);
+            } else {
+                setUserFriends(currentUser.friends)
+            }
+        }, [currentUser, setHidenav, setUserFriends])
 
     if (currentUser == null){
-        function update() {
-            setHidenav('hidenav')
-        }
         return (
             <Login />
     )
     } else {
-        setUserFriends(currentUser.friends)
         return (
             <>
                 <Chats />
@@ -23,4 +29,4 @@ function Home(){
     }
 }
 
-export default Home
+export default Home;

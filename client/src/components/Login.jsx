@@ -4,10 +4,10 @@ import { useOutletContext } from "react-router-dom"
 
 function Login(){
 
-    const [ username, setUsername ] = useState ('')
-    const [ password, setPassword ] = useState ('')
-    const [ player_id, setPlayer_id ] = useState ('')
-    const [ isClicked, setIsClicked ] = useState(false)
+    const [ username, setUsername ] = useState ('');
+    const [ password, setPassword ] = useState ('');
+    const [ player_id, setPlayer_id ] = useState ('');
+    const [ isClicked, setIsClicked ] = useState(false);
 
     const{setCurrentUser} = useOutletContext()
 
@@ -91,4 +91,4 @@ function Login(){
         }
 }
 
-export default Login
+export default Login;

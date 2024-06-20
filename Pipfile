@@ -18,6 +18,8 @@ flask-socketio = "*"
 flask-session = "*"
 python-dotenv = "*"
 dota2 = "*"
+gevent-websocket = "*"
+boto3 = "*"
 
 [dev-packages]
 ipdb = "*"

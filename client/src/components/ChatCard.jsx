@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 function ChatCard({ setIsClicked, isClicked, friend, setSelectedFriend }) {
+
     const [messages, setMessages] = useState([]);
-    
+    const { currentUser } = useOutletContext();
+
     useEffect(() => {
         fetch(`/api/get_messages/${friend.friend_id}`)
             .then(response => response.json())
@@ -13,17 +16,26 @@ function ChatCard({ setIsClicked, isClicked, friend, setSelectedFriend }) {
             });
     }, [friend.friend_id]);
 
-    // Get the timestamp of the last message, if it exists
     const lastMessage = messages[messages.length - 1];
     const lastChatTime = lastMessage ? new Date(lastMessage.timestamp).toLocaleTimeString() : '';
+
+    const lm = messages[messages.length - 1] || {'content': ''};
+    console.log(lm);
 
     return (
         <div className="chat-card" onClick={() => {
             setIsClicked(!isClicked);
             setSelectedFriend(friend);
         }}>
-            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png" alt="none"/>
-            <h2>{friend.username}</h2>
+            <img src={friend.profile_img} alt="none"/>
+            <h2>{friend.username}
+                <p style={{
+                    color: 'rgba(255, 255, 255, 0.5)',
+                    fontSize: 'small'
+                }}>
+                {lm.content}
+                </p>
+            </h2>
             <span>{lastChatTime}</span>
         </div>
     );

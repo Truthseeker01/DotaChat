@@ -3,7 +3,6 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from datetime import datetime
-
 from config import db, bcrypt
 
 class User(db.Model, SerializerMixin):
@@ -13,6 +12,7 @@ class User(db.Model, SerializerMixin):
     username = db.Column(db.String, unique=True, nullable=False)
     _hashed_password = db.Column(db.String, nullable=False)
     player_id = db.Column(db.String)
+    profile_img = db.Column(db.String)
 
     sent_messages = db.relationship('Message', foreign_keys='Message.sender_id', back_populates='sender')
     recieved_messages = db.relationship('Message', foreign_keys='Message.recipient_id', back_populates='recipient')
@@ -28,6 +28,7 @@ class User(db.Model, SerializerMixin):
             'player_id': self.player_id,
             'sent_messages': [message.to_dict() for message in self.sent_messages],
             'recieved_messages': [message.to_dict() for message in self.recieved_messages],
+            'profile_img': self.profile_img,
             'friends': [friend.to_dict() for friend in self.friends]
         }
 
@@ -65,8 +66,10 @@ class Friend(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)
+    player_id = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     friend_id = db.Column(db.Integer, nullable=False)
+    profile_img = db.Column(db.String)
 
     user = db.relationship('User', back_populates='friends')
 
@@ -76,31 +79,8 @@ class Friend(db.Model, SerializerMixin):
         return {
             'id': self.id,
             'username': self.username,
+            'player_id': self.player_id,
             'user_id': self.user_id,
-            'friend_id': self.friend_id
+            'friend_id': self.friend_id,
+            'profile_img': self.profile_img
         }
-
-
-
-
-
-
-
-
-
-
-# class Play(db.Model, SerializerMixin):
-#     __tablename__ = 'plays'
-
-#     id = db.Column(db.Integer, primary_key=True)
-#     filename = db.Column(db.String)
-#     file = db.Column
-
-
-# class Friendship(db.Model, SerializerMixin):
-
-#     __tablename__ = 'friendships'
-
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-#     friend_id = db.Column(db.Integer, db.ForeignKey('friends.id'))
