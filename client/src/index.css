@@ -19,7 +19,7 @@ body{
   
   nav{
     width: 100%;
-    background-color: #111;
+    background-color: #000;
     margin-bottom: 0;
     display: flex;
     flex-direction: row;
@@ -43,14 +43,14 @@ body{
   }
 
   nav a:hover{
-    background-color: #222;
+    background-color: #111;
   }
   
   /* Profile styles */
     #profile{
         width: 100%;
         height: 100%;
-        background-color: #393d49;
+        background-color: #111;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -63,15 +63,15 @@ body{
         gap: 25px;
         justify-content: center;
         align-items: center;
-        background-color: #111;
+        background-color: #000;
         width: 100%;
         height: 15%;
     }
   
   
     #profile-picture{
-        width: 20%;
-        height: 80%;
+        width: 90px;
+        height: 90px;
         border-radius: 50%;
         margin-left: 20px;
     }
@@ -136,43 +136,34 @@ body{
         font-size: 0.8rem;
     }
   
-    #profile-main #last-match{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow-y: scroll;
-        scrollbar-width: none;
-    }
+    #profile-main #last-match {
+      flex: 1;
+      width: 95%;
+      display: flex;
+      /* flex-wrap: wrap; */
+      flex-direction: row;
+      /* justify-content: center; */
+      gap: 5px;
+      /* overflow-y: auto;*/
+      overflow-x: scroll; 
+      border-top: 1px solid white;
+      scrollbar-width: none;
+  }
   
-    #last-match img{
-        height: 60%;
+  #profile-main #last-match video {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 49%;
+      height: 30%;
+  }
+
+    #profile-main h3{
+      width: 100%;
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
     }
-  
-    #last-match p{
-        color: white;
-    }
-  
-    #last-match #build{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        margin-left: 10px;
-    }
-  
-    #last-match #build h3{
-        color: #989898;
-    }
-  
-    #last-match #build img{
-        width: 11%;
-        height: 90%;
-    }
-  
-    #hero p{
-        color: white;
-    }
-  
+
     #profile-footer{
         display: flex;
         justify-content: center;
@@ -197,7 +188,7 @@ body{
     #chats-container{
         width: 100%;
         height: 100%;
-        background-color: #393d49;
+        background-color: #111;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
@@ -216,17 +207,20 @@ body{
         padding-top: 25px;
         width: 100%;
         text-align: center;
-        background-color: #111;
+        background-color: #000;
     }
   
     .chat-card{
+      width: 100%;
         display: flex;
         flex-direction: row;
+        border-radius: 10px;
         border-bottom: 1px solid white;
     }
   
     .chat-card img{
-        width: 15%;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         margin-left: 3%;
         margin-top: 2%;
@@ -240,17 +234,70 @@ body{
     }
 
     .chat-card span{
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(218, 218, 218, 0.5);
       margin-right: 5%;
       margin-top: 5%;
     }
+
+  /* toggle mode styles */
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  #toggle input:checked + .slider {
+    background-color: #111;
+  }
+  
+  #toggle input:focus + .slider {
+    box-shadow: 0 0 1px #111;
+  }
+  
+  #toggle input:checked + .slider:before {
+    transform: translateX(26px);
+  }
   
   /* Search styles */
   
     #Search{
         width: 100%;
         height: 100%;
-        background-color: #393d49;
+        background-color: #111;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
@@ -265,7 +312,7 @@ body{
         padding-top: 25px;
         width: 100%;
         text-align: center;
-        background-color: #111;
+        background-color: #000;
     }
   
     #Search form{
@@ -295,13 +342,57 @@ body{
     #Search form button:hover{
         border: 1px solid rgb(98, 173, 243);
     }
+
+    #search-error{
+      color: white;
+    }
+
+    #search-card{
+      background-color: #222;
+      color: rgba(255, 255, 255, 0.486);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      /* gap: 5%; */
+      border: 1px solid white;
+    }
+
+    #search-card h1{
+      flex: 1;
+      background: transparent;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    #search-card img{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-left: 2%;
+    }
+
+    #search-card button{
+      width: 60px;
+      height: 60px;
+      border-radius: 20%;
+      margin-right: 3%;
+      border: none;
+      background-color: #e8e8e822;
+      font-size: 45px;
+      text-align: center;
+    }
+
+    #friend-added {
+      color: white;
+    }
   
   /* Plays styles */
   
   #plays{
     width: 100%;
     height: 100%;
-    background-color: #393d49;
+    background-color: #111;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -317,7 +408,7 @@ body{
     padding-top: 25px;
     width: 100%;
     text-align: center;
-    background-color: #111;
+    background-color: #000;
   }
   
   #playscard{
@@ -358,7 +449,7 @@ body{
   #chatbox{
     width: 100%;
     height: 100%;
-    background-color: #393d49;
+    background-color: #111;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -366,11 +457,15 @@ body{
     align-items: center;
     scrollbar-width: none;
   }
+
+  #chatbox .hide-emoji{
+    display: none;
+  }
   
   #chat_header{
     align-self: flex-start;
     width: 100%;
-    background-color: #111;
+    background-color: #000;
     color: #bdbdbd;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -388,7 +483,8 @@ body{
     padding-top: 25px;
     width: 100%;
     text-align: center;
-    background-color: #111;
+    background-color: #000;
+    font-size: 30px;
   }
   
   #chat_header button{
@@ -424,7 +520,7 @@ body{
     background-color: rgb(248, 245, 240);
     max-width: 60%;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-left: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -432,7 +528,12 @@ body{
     flex-wrap: wrap;
     word-break: break-word;
     overflow-wrap: break-word;
-  
+    display: flex;
+    flex-direction: column;
+  }
+
+  #message_container div span{
+    font-size: 12px;
   }
   
   #send{
@@ -448,8 +549,8 @@ body{
     flex: 1;
     height: 60%;
     border-radius: 25px;
-    margin-left: 10px;
-    background-color: white;
+    margin-left: 15px;
+    background-color: rgb(255, 255, 255);
   }
   
   #send input:focus{
@@ -457,25 +558,24 @@ body{
   }
   
   #send button{
-    height: 65%;
-    width: 20%;
-    border-radius: 25px;
-    margin-right: 10px;
-    background-color: white;
-    color: #111;
+    width: 15%;
+    border: none;
+    background: none;
     cursor: pointer;
   }
   
-  #message_container .recieved-message{
+  #message_container .received-message{
     color: #111;
     align-self: flex-start;
     margin-left: 15px;
+    border-bottom-left-radius: 0;
   }
   
   #message_container .sent-message{
-    color: #ba3e3e;
+    color: #111;
     align-self: flex-end;
     margin-right: 15px;
+    border-bottom-right-radius: 0;
   }
   
   /* ViewProfie styles */
@@ -483,7 +583,7 @@ body{
   #view-profile{
     width: 100%;
     height: 100%;
-    background-color: #393d49;
+    background-color: #111;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -495,15 +595,16 @@ body{
     gap: 25px;
     justify-content: center;
     align-items: center;
-    background-color: #111;
+    background-color: #000;
+    margin-top: 2%;
     width: 100%;
     height: 15%;
   }
   
   
   #view-profile-picture{
-    width: 20%;
-    height: 80%;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     margin-left: 20px;
   }
@@ -522,19 +623,22 @@ body{
   #view-profile-header p{ 
     color: white;
     align-self: flex-start;
+    font-size: small;
   }
   
   #view-profile-header h1{
     color: white;
+    font-size: x-large;
   }
   
   #view-profile-main{
-    flex: 1;
+    /* flex: 1; */
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
   }
   
   #view-profile-main #view-widget{
@@ -565,56 +669,72 @@ body{
     color: #ffffff;
     font-size: 0.8rem;
   }
+
+/* #view-last-match{
+  flex: 1;
+  width: 95%;
+  display: flex;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  overflow-y: auto;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+#view-last-match video{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: calc(33.33% - 20px); 
+  height: 22%;
+} */
+#view-last-match {
+  flex: 1;
+  width: 95%;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  gap: 5px;
+  overflow-y: auto;
+  border-top: 1px solid white;
+  scrollbar-width: none;
+}
+
+#view-last-match video {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 49%;
+  height: 30%;
+}
+
+#view-profile-main h3{
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+#view-profile-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  /* width: 100%;
+  height: 15%; */
+}
   
-  #view-last-match{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #view-last-match img{
-    height: 60%;
-  }
-  
-  #view-last-match h3, p{
-    color: white;
-  }
-  
-  #view-last-match #view-build{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-left: 10px;
-  }
-  
-  #view-last-match #view-build h3{
-    color: #989898;
-  }
-  
-  #view-last-match #view-build img{
-    width: 11%;
-    height: 90%;
-  }
-  
-  #view-profile-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #111;
-    width: 100%;
-    height: 15%;
-  }
-  
-  #view-profile-footer button{
-    border: 1px solid #ffffff;
-    height: 50%;
-    width: 70%;
-    background: transparent;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-  }
+#view-profile-footer button{
+  border: 1px solid #ffffff;
+  height: 50px;
+  width: 70%;
+  background: transparent;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
   
   /* login styles */
   .login-div{
@@ -661,7 +781,7 @@ body{
   #post{
     width: 100%;
     height: 100%;
-    background-color: #393d49;
+    background-color: #111;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -695,7 +815,7 @@ body{
   #post form .file-label {
     display: inline-block;
     padding: 8px 16px;
-    background-color: #111;
+    background-color: #222;
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -718,7 +838,7 @@ body{
     justify-content: center;
     margin-bottom: 10px;
     padding: 8px 16px;
-    background-color: #111;
+    background-color: #222;
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -761,6 +881,7 @@ body{
   
   #post form button{
     border: none;
+    background-color: #222;
   
   }
 

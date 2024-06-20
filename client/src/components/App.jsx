@@ -6,34 +6,48 @@ import Chats from './Chats'
 
 function App() {
 
-  const [ currentUser, setCurrentUser ] = useState(null)
-  const [ userFriends, setUserFriends ] = useState([])
+  const [ currentUser, setCurrentUser ] = useState(null);
+  const [ userFriends, setUserFriends ] = useState([]);
+  const [ users, setUsers ] = useState([]);
+  const [ selectedFriend, setSelectedFriend ] = useState(null);
 
-  const [hidenav, setHidenav] = useState('')
+  const [hidenav, setHidenav] = useState('');
 
   useEffect( () => {
+
+    // Handling the currentUser
     fetch('/api/check-session')
     .then(response => {
       if (response.status === 200) {
         response.json()
         .then(loggedUser => {
-          setCurrentUser(loggedUser)
-          // setUserFriends(loggedUser.friends)
+          setCurrentUser(loggedUser);
+          // setUserFriends(pre => [...pre, loggedUser.friends] || [])
         })
       }
     }
     );
-      // fetch(`https://api.opendota.com/api/players/76561199221134863/matches`)
-      // .then(res => res.json())
-      // .then(data => console.log(data))
+    // fetching all users
+    fetch('/api/users')
+    .then(response => {
+      if (response.status === 200) {
+        response.json()
+        .then(data => {
+          setUsers(data);
+          console.log(data);
+        })
+      }
+    }
+    );
+
   }, [])
 
   return (
     <div id='app'>
-      <Outlet context={{currentUser: currentUser, setCurrentUser: setCurrentUser, hidenav: hidenav, setHidenav: setHidenav, userFriends: userFriends,setUserFriends: setUserFriends }} />
+      <Outlet context={{currentUser: currentUser, setCurrentUser: setCurrentUser, hidenav: hidenav, setHidenav: setHidenav, userFriends: userFriends,setUserFriends: setUserFriends, users: users, setSelectedFriend: setSelectedFriend,selectedFriend: selectedFriend }} />
       <Navbar hidenav={hidenav}/>
     </div>
   )
 }
 
-export default App
+export default App;

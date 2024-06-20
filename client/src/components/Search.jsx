@@ -4,12 +4,15 @@ import { useOutletContext } from "react-router-dom"
 function Search(){
 
     const [searchedUser, setSearchedUser] = useState('')
-    const {setHidenav, setUserFriends, currentUser} = useOutletContext()
+    const {setHidenav, userFriends, setUserFriends, currentUser} = useOutletContext();
+    const [ newFriend, setNewFriend ] = useState(null);
+    const [ searchError, setSearchError ] = useState(false);
+    const [ added, setAdded ] = useState(false);
 
-    function handlesubmit(e){
+
+    function handleSubmit(e){
         e.preventDefault()
-        setHidenav('hidenav')
-        
+
         fetch(`/api/users/${searchedUser}`, {
             method: 'POST',
             headers: {
@@ -20,34 +23,42 @@ function Search(){
         .then (res =>{
             if(res.ok ){
                 res.json()
-                .then(user => setUserFriends(preFriends => [...preFriends, user]))
+                .then(user => {
+                    setNewFriend(user);
+                    setUserFriends(preFriends => [...preFriends, user]);
+                })
+                
             }else{
-                alert("Can't find player")
+                setSearchError(true)
             }
         })
     }
 
-    // if (searchedUser == ''){
         return (
         <div id='Search'>
             <h1>Search</h1>
-            <form onSubmit={handlesubmit}>
+            <form onSubmit={handleSubmit}>
                 <input onChange={e => setSearchedUser(e.target.value)} type="text" name="player_id" placeholder="Player ID" value={searchedUser} />
                 <button type="submit" name="find_player">Search</button>
             </form>
-            {/* I will need a searchcard here to be rendered based on the search state */}
+
+            {searchError && <div id='search-error'>No user found, make sure you entered the correct ID</div>}
+
+
+            {newFriend && <div id='search-card'>
+                <img src={newFriend.profile_img} alt="searched user\'s profile image"/>
+                <h1>{newFriend.username}</h1>
+                <button onClick={e => {
+                    // setUserFriends(pre => [...pre, newFriend])
+                    setSearchedUser('');
+                    setNewFriend(null);
+                    setAdded(true);
+                }}>+</button>
+            </div>}
+            {added && <div id='friend-added'>Friend successfully added to your chats</div>}
         </div>
-    // )} else {
-    //     return (
-    //         <div>
-    //             <h1>Ahmed {'<<add>>'}</h1>
-    //             <button onClick={e => {
-    //                 setHidenav('')
-    //                 setSearchedUser('')
-    //             }}>add</button>
-    //         </div>
-    // )}
-        )
+    )
+        
 }
 
-export default Search
+export default Search;
