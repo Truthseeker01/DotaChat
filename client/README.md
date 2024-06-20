@@ -1,8 +1,18 @@
-# React + Vite
+'''DotaChat'''
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+What is DotaChat?
+- DotaChat is a chatting app built specifically for dota2 players, but anyone can use it.
 
-Currently, two official plugins are available:
+Why did I build it?
+- I enjoy playing dota and I have many dota friends, so I decided to build something for them.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+How it works?
+- Step 1:
+    - Run 'npm install --prefix client' or cd to client then run 'npm install'.
+- Step 2:
+    - Run 'pipenv install' then 'pipenv shell'.
+    - cd to server and run 'python app.py'
+
+Enjoy the app!
+
+By Ahmed Basamad (JJ)
