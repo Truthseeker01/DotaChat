@@ -18,7 +18,7 @@ if __name__ == '__main__':
         friends = []
         messages = []
 
-        u = User(username="Lina's Husband", player_id= "1260869135", profile_img='https://dotesports.com/wp-content/uploads/2023/04/phantom-lancer-dota-2.jpg')
+        u = User(username="JJ", player_id= "1260869135", profile_img='https://dotesports.com/wp-content/uploads/2023/04/phantom-lancer-dota-2.jpg')
         u._hashed_password= bcrypt.generate_password_hash('123').decode('utf-8')
         users.append(u)
 
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         u._hashed_password= bcrypt.generate_password_hash('password').decode('utf-8')
         users.append(u)
 
-        u = User(username="STFU", player_id= "5551234562", profile_img='https://playerreadyup.com/wp-content/uploads/2018/08/grimstroke_blog.png')
+        u = User(username="Ace", player_id= "5551234562", profile_img='https://playerreadyup.com/wp-content/uploads/2018/08/grimstroke_blog.png')
         u._hashed_password= bcrypt.generate_password_hash('password').decode('utf-8')
         users.append(u)
 
@@ -85,10 +85,10 @@ if __name__ == '__main__':
         f = Friend(username='123', player_id= "5551234561", user_id = 1, friend_id=2, profile_img='https://wallpaper-house.com/data/out/9/wallpaper2you_294856.jpg')
         friends.append(f)
 
-        f = Friend(username='Lina\'s Husband', player_id= "1260869135", user_id = 10, friend_id=1, profile_img='https://dotesports.com/wp-content/uploads/2023/04/phantom-lancer-dota-2.jpg')
+        f = Friend(username='JJ', player_id= "1260869135", user_id = 10, friend_id=1, profile_img='https://dotesports.com/wp-content/uploads/2023/04/phantom-lancer-dota-2.jpg')
         friends.append(f)
 
-        f = Friend(username='Lina\'s Husband', player_id= "1260869135", user_id = 9, friend_id=1, profile_img='https://dotesports.com/wp-content/uploads/2023/04/phantom-lancer-dota-2.jpg')
+        f = Friend(username='JJ', player_id= "1260869135", user_id = 9, friend_id=1, profile_img='https://dotesports.com/wp-content/uploads/2023/04/phantom-lancer-dota-2.jpg')
         friends.append(f)
 
         db.session.add_all(friends)
