@@ -104,7 +104,7 @@ function Plays() {
   return (
     <div id='plays'>
       {!post ? (
-        <div id="plays">
+        <div id="plays-main">
           <h1>Plays</h1>
           <button
             onClick={() => {

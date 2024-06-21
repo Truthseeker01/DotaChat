@@ -4,6 +4,17 @@ body{
     align-items: center;
     flex-direction: column;
     margin: 0;
+
+
+    background-image: url('https://dmarket.com/blog/best-dota2-wallpapers/dota2-wallpaper-logo_hud2a557bc7cf1af2b42e013f2bce0f3fa_165815_1920x1080_resize_q100_lanczos.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-color: #f0f0f0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   #app{
@@ -50,7 +61,8 @@ body{
     #profile{
         width: 100%;
         height: 100%;
-        background-color: #111;
+        /* background-color: #111; */
+        background-color: rgba(17, 17, 17, 0.5);
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -168,7 +180,7 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #111;
+        /* background-color: #111; */
         width: 100%;
         height: 15%;
     }
@@ -188,7 +200,8 @@ body{
     #chats-container{
         width: 100%;
         height: 100%;
-        background-color: #111;
+        /* background-color: #111; */
+        background-color: rgba(17, 17, 17, 0.5);
         display: flex;
         flex-direction: column;
         overflow-y: auto;
@@ -297,7 +310,8 @@ body{
     #Search{
         width: 100%;
         height: 100%;
-        background-color: #111;
+        /* background-color: #111; */
+        background-color: rgba(17, 17, 17, 0.5);
         display: flex;
         flex-direction: column;
         overflow-y: auto;
@@ -392,13 +406,24 @@ body{
   #plays{
     width: 100%;
     height: 100%;
-    background-color: #111;
+    /* background-color: #111; */
+    background-color: rgba(17, 17, 17, 0.5);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     gap: 10px;
     align-items: center;
     scrollbar-width: none;
+  }
+
+  #plays-main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #plays-main button{
+    width: 20%;
   }
   
   #plays h1{
@@ -449,7 +474,8 @@ body{
   #chatbox{
     width: 100%;
     height: 100%;
-    background-color: #111;
+    /* background-color: #111; */
+    background-color: rgba(17, 17, 17, 0.5);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -583,7 +609,8 @@ body{
   #view-profile{
     width: 100%;
     height: 100%;
-    background-color: #111;
+    /* background-color: #111; */
+    background-color: rgba(17, 17, 17, 0.5);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -670,33 +697,11 @@ body{
     font-size: 0.8rem;
   }
 
-/* #view-last-match{
-  flex: 1;
-  width: 95%;
-  display: flex;
-  overflow-y: auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-  overflow-y: auto;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
-
-#view-last-match video{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: calc(33.33% - 20px); 
-  height: 22%;
-} */
 #view-last-match {
   flex: 1;
   width: 95%;
   display: flex;
-  /* flex-wrap: wrap; */
   flex-direction: row;
-  /* flex-direction: column; */
-  /* justify-content: center; */
   gap: 5px;
   overflow-y: auto;
   border-top: 1px solid white;
@@ -721,9 +726,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #111;
-  /* width: 100%;
-  height: 15%; */
+  /* background-color: #111; */
 }
   
 #view-profile-footer button{
@@ -781,7 +784,7 @@ body{
   #post{
     width: 100%;
     height: 100%;
-    background-color: #111;
+    /* background-color: #111; */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -888,33 +891,67 @@ body{
 
 @media only screen and (min-width: 550px) {
     body{
-        background-color: #1e1e1e;
+        background-image: url('https://dmarket.com/blog/best-dota2-wallpapers/dota2-wallpaper-logo_hud2a557bc7cf1af2b42e013f2bce0f3fa_165815_1920x1080_resize_q100_lanczos.jpg');
+        background-size: cover;
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-color: #f0f0f0; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* height: 800px; */
+    
+    }
+    #app{
+      /* height: 100%; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* width: 100%; */
+    }
+
+    #home{
+      width: 35%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    nav{
+      width: 35%;
     }
     #chats-container{
-        width: 30%;
+        width: 35%;
+        background-color: rgba(34, 34, 34, 0.5);
     }
     #chatbox{
-        width: 70%;
-        align-self: flex-end;
+        width: 35%;
+        background-color: rgba(34, 34, 34, 0.5);
     }
     #Search{
-        width: 70%;
-        align-self: flex-end;
+        width: 35%;
+        background-color: rgba(34, 34, 34, 0.5);
     }
     #plays{
-        width: 70%;
-        align-self: flex-end;
+        width: 35%;
+        background-color: rgba(34, 34, 34, 0.5);
     }
     #profile{
-        width: 70%;
-        align-self: flex-end;
+        width: 35%;
+        background-color: rgba(34, 34, 34, 0.5);
     }
+    #view-profile{
+      width: 35%;
+      background-color: rgba(34, 34, 34, 0.5);
+  }
     #post{
-        width: 70%;
-        align-self: flex-end;
+        width: 35%;
+        background: transparent;
     }
     #message_container div{
       max-width: 40%;
     }
     }
-}
