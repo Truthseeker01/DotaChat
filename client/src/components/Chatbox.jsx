@@ -130,6 +130,7 @@ function Chatbox({ isClicked, setIsClicked, setHidenav, selectedFriend}) {
                         previewPosition='none' 
                         onEmojiSelect={ e => {
                             setEmoji(e.native);
+                            setMessage(pre => pre + e.native)
                             setShowEmojiPicker(!showEmojiPicker);
                         }} 
                     />
