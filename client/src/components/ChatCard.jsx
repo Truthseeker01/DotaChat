@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function ChatCard({ setIsClicked, isClicked, friend, setSelectedFriend }) {
-
     const [messages, setMessages] = useState([]);
+    const [isNow, setIsNow] = useState(false);
     const { currentUser } = useOutletContext();
 
     useEffect(() => {
@@ -19,8 +19,24 @@ function ChatCard({ setIsClicked, isClicked, friend, setSelectedFriend }) {
     const lastMessage = messages[messages.length - 1];
     const lastChatTime = lastMessage ? new Date(lastMessage.timestamp).toLocaleTimeString() : '';
 
+    useEffect(() => {
+        if (lastMessage) {
+            const now = new Date();
+            const messageTime = new Date(lastMessage.timestamp);
+            const isRecent = now - messageTime < 20000; //This will return true or false
+            setIsNow(isRecent);
+
+            if (isRecent) {
+                const timer = setTimeout(() => {
+                    setIsNow(false);
+                }, 20000);
+
+                return () => clearTimeout(timer);
+            }
+        }
+    }, [lastMessage]);
+
     const lm = messages[messages.length - 1] || {'content': ''};
-    console.log(lm);
 
     return (
         <div className="chat-card" onClick={() => {
@@ -36,7 +52,7 @@ function ChatCard({ setIsClicked, isClicked, friend, setSelectedFriend }) {
                 {lm.content}
                 </p>
             </h2>
-            <span>{lastChatTime}</span>
+            <span>{isNow ? 'Now' : lastChatTime}</span>
         </div>
     );
 }
