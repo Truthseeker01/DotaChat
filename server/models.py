@@ -42,6 +42,7 @@ class Message(db.Model, SerializerMixin):
     timestamp = db.Column(db.DateTime, default=db.func.current_timestamp())
     sender_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     recipient_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    reaction = db.Column(db.String, default = '')
 
     sender = db.relationship('User', foreign_keys=[sender_id], back_populates='sent_messages')
     recipient = db.relationship('User', foreign_keys=[recipient_id], back_populates='recieved_messages')
@@ -56,7 +57,8 @@ class Message(db.Model, SerializerMixin):
             'sender_id': self.sender_id,
             'recipient_id': self.recipient_id,
             'sender': {'id': self.sender.id, 'username': self.sender.username} if self.sender else None,
-            'recipient': {'id': self.recipient.id, 'username': self.recipient.username} if self.recipient else None
+            'recipient': {'id': self.recipient.id, 'username': self.recipient.username} if self.recipient else None,
+            'reaction' : self.reaction
         }
     
 

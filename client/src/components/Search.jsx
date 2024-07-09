@@ -26,6 +26,7 @@ function Search(){
                 .then(user => {
                     setNewFriend(user);
                     setUserFriends(preFriends => [...preFriends, user]);
+                    console.log(`added user:${user.data}`);
                 })
                 
             }else{

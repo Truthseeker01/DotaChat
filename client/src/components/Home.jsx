@@ -14,7 +14,7 @@ function Home(){
             } else {
                 setUserFriends(currentUser.friends)
             }
-        }, [currentUser, setHidenav, setUserFriends])
+        }, [currentUser])
 
     if (currentUser == null){
         return (

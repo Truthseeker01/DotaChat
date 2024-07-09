@@ -22,7 +22,7 @@ function App() {
         response.json()
         .then(loggedUser => {
           setCurrentUser(loggedUser);
-          // setUserFriends(pre => [...pre, loggedUser.friends] || [])
+          // setUserFriends(loggedUser.friends || [])
         })
       }
     }
@@ -34,7 +34,7 @@ function App() {
         response.json()
         .then(data => {
           setUsers(data);
-          console.log(data);
+          // console.log(data);
         })
       }
     }

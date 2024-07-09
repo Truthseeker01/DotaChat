@@ -4,6 +4,8 @@ import socket from "../socket";
 import { useOutletContext } from "react-router-dom";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
+import ReactionCard from "./ReactionCard";
+import Reaction from "./Reaction";
 
 function Chatbox({ isClicked, setIsClicked, setHidenav, selectedFriend}) {
     const { currentUser } = useOutletContext();
@@ -13,6 +15,9 @@ function Chatbox({ isClicked, setIsClicked, setHidenav, selectedFriend}) {
     const [isViewProfile, setIsViewProfile] = useState(true);
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const [ emoji, setEmoji ] = useState(null);
+
+    const [ showReaction, setShowReaction ] = useState(null);
+    const [ reaction, setReaction ] = useState(null);
 
     // To request notification permission
     useEffect(() => {
@@ -78,9 +83,13 @@ function Chatbox({ isClicked, setIsClicked, setHidenav, selectedFriend}) {
     const mappedMessages = [...sentMessages, ...receivedMessages]
         .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
         .map((msg, index) => (
-            <div key={index} className={msg.sender_id === currentUser.id ? 'sent-message' : 'received-message'}>
-                {(msg.sender_id === currentUser.id) ? `${msg.content}`: `${msg.content}`}
+            <div onClick={() => setShowReaction(index)} key={index} className={msg.sender_id === currentUser.id ? 'sent-message' : 'received-message'}>
+                <div className={msg.sender_id === currentUser.id ? 'sent-message1' : 'received-message1'}>{(msg.sender_id === currentUser.id) ? `${msg.content}`: `${msg.content}`}
                 <span><em>{new Date(msg.timestamp).toLocaleTimeString()}</em></span>
+                </div>
+                <Reaction id={msg.id} r_emoji={msg.reaction} />
+                {/* {showReaction === index && <span style={{background: 'none', fontSize: '15px'}}>{reaction}</span>} */}
+            {showReaction === index & msg.sender_id !== currentUser.id && <ReactionCard id={msg.id} class_name={msg.sender_id === currentUser.id ? 'sent-reaction' : 'received-reaction'} setReaction={setReaction} setShowReaction={setShowReaction} setSentMessages={setSentMessages} setReceivedMessages={setReceivedMessages}/>}
             </div>
         ));
 
@@ -118,7 +127,7 @@ function Chatbox({ isClicked, setIsClicked, setHidenav, selectedFriend}) {
                         <img src='./src/assets/emoji.png'  width='35px' />
                     </button>
                     <input
-                        onChange={e => { setMessage(e.target.value); toggleEmojiPicker(); }}
+                        onChange={e => { setMessage(e.target.value); }}
                         type="text" name="message" placeholder="" value={message} />
                     <button onClick={sendMessage}>
                         <img src='./src/assets/send.png'  width='35px' />
@@ -145,3 +154,4 @@ function Chatbox({ isClicked, setIsClicked, setHidenav, selectedFriend}) {
 }
 
 export default Chatbox;
+

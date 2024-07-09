@@ -52,6 +52,15 @@ def post_new_friend(id):
         db.session.add(friend)
         db.session.commit()
         return friend.to_dict(), 201
+
+@app.post(PROXY + '/reaction/<int:id>')
+def create_reaction(id):
+    msg = Message.query.where(Message.id == id).first()
+    msg.reaction = request.json['reaction']
+
+    db.session.commit()
+
+    return msg.to_dict(), 201
     
 
 @app.get(PROXY + '/check-session')
